@@ -322,6 +322,15 @@ function safeB64Decode(str) {
   } catch (e) { return ''; }
 }
 
+function safeUriDecode(str) {
+  if (!str) return '';
+  try {
+    return decodeURIComponent(String(str));
+  } catch (e) {
+    return String(str);
+  }
+}
+
 function parseNodeUri(uri) {
   try {
     if (!uri) return null;
@@ -354,8 +363,8 @@ function parseNodeUri(uri) {
     if (uri.startsWith('vless://') || uri.startsWith('trojan://') || uri.startsWith('ss://')) {
       let type = uri.split('://')[0].toLowerCase();
       let parts = uri.split('#');
-      let name = parts[1] ? decodeURIComponent(parts[1]).replace(/["'\\]/g, '') : `${type.toUpperCase()} 节点`;
-      let main = parts[0].replace(new RegExp(`^${type}:\\/\\/`, 'i'), '');
+      let name = parts[1] ? safeUriDecode(parts[1]).replace(/["'\\]/g, '') : `${type.toUpperCase()} 节点`;
+      let main = safeUriDecode(parts[0].replace(new RegExp(`^${type}:\\/\\/`, 'i'), ''));
       if (type === 'ss' && !main.includes('@')) {
           let decodedMain = safeB64Decode(main);
           if (decodedMain && decodedMain.includes('@')) main = decodedMain;
@@ -365,8 +374,12 @@ function parseNodeUri(uri) {
         let atIndex = main.lastIndexOf('@');
         credentials = main.substring(0, atIndex);
         serverPortWithQuery = main.substring(atIndex + 1);
-        if (type === 'ss' && !credentials.includes(':')) credentials = safeB64Decode(credentials);
+        if (type === 'ss') {
+          credentials = safeUriDecode(credentials);
+          if (!credentials.includes(':')) credentials = safeB64Decode(credentials);
+        }
       } else { serverPortWithQuery = main; }
+      serverPortWithQuery = safeUriDecode(serverPortWithQuery);
       let [serverPort, query] = (serverPortWithQuery || '').includes('?') ? serverPortWithQuery.split('?') : [serverPortWithQuery, ''];
       if (!serverPort) return null;
       let [server, port] = serverPort.split(':');
