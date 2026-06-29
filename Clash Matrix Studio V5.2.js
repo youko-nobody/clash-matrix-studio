@@ -1,5 +1,5 @@
 /**
- * Clash Matrix Studio V5.1 - 终极防弹自愈版 (完整版)
+ * Clash Matrix Studio V5.2 - 终极防弹自愈版 (完整版)
  * 修复：解决因特殊编码导致的前端渲染器静默崩溃（幽灵隐形），加入全量 Try-Catch 防护网与原生排版强制撑开。
  */
 
@@ -66,6 +66,7 @@ const ACCADEMIA_TEMPLATE = [
   "  PreRepairEasyPrivacy_DIRECT: {type: http, behavior: classical, interval: 86400, url: \"https://raw.githubusercontent.com/Accademia/Additional_Rule_For_Clash/main/PreRepairEasyPrivacy/PreRepairEasyPrivacy_DIRECT.yaml\", path: ./ruleset/Accademia/PreRepairEasyPrivacy_DIRECT.yaml}",
   "  PreRepairEasyPrivacy_PROXY: {type: http, behavior: classical, interval: 86400, url: \"https://raw.githubusercontent.com/Accademia/Additional_Rule_For_Clash/main/PreRepairEasyPrivacy/PreRepairEasyPrivacy_PROXY.yaml\", path: ./ruleset/Accademia/PreRepairEasyPrivacy_PROXY.yaml}",
   "  PreRepairEasyPrivacy_REJECT: {type: http, behavior: classical, interval: 86400, url: \"https://raw.githubusercontent.com/Accademia/Additional_Rule_For_Clash/main/PreRepairEasyPrivacy/PreRepairEasyPrivacy_REJECT.yaml\", path: ./ruleset/Accademia/PreRepairEasyPrivacy_REJECT.yaml}",
+  "  AntiAd: {type: http, behavior: domain, interval: 86400, url: \"https://raw.githubusercontent.com/privacy-protection-tools/anti-AD/master/anti-ad-clash.yaml\", path: ./ruleset/privacy-protection-tools/anti-ad-clash.yaml}",
   "  RustDesk_Domain: {type: http, behavior: domain, interval: 86400, url: \"https://raw.githubusercontent.com/Accademia/Additional_Rule_For_Clash/main/RustDesk/RustDesk_Domain.yaml\", path: ./ruleset/Accademia/RustDesk_Domain.yaml}",
   "  Signal_Domain: {type: http, behavior: domain, interval: 86400, url: \"https://raw.githubusercontent.com/Accademia/Additional_Rule_For_Clash/main/Signal/Signal_Domain.yaml\", path: ./ruleset/Accademia/Signal_Domain.yaml}",
   "  UnsupportVPN_Domain: {type: http, behavior: domain, interval: 86400, url: \"https://raw.githubusercontent.com/Accademia/Additional_Rule_For_Clash/main/UnsupportVPN/UnsupportVPN_Domain.yaml\", path: ./ruleset/Accademia/UnsupportVPN_Domain.yaml}",
@@ -116,53 +117,62 @@ const ACCADEMIA_TEMPLATE = [
   "proxy-groups:",
   "  - name: PROXY",
   "    type: select",
+  "    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Proxy.png",
   "    proxies:",
   "      - '♻️ 自动测速'",
   "      - DIRECT",
   "      - '[ALL_NODES]'",
   "  - name: Emby代理",
   "    type: select",
+  "    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Emby.png",
   "    proxies:",
   "      - PROXY",
   "      - DIRECT",
   "      - '[ALL_NODES]'",
   "  - name: TG",
   "    type: select",
+  "    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Telegram.png",
   "    proxies:",
   "      - PROXY",
   "      - DIRECT",
   "      - '[ALL_NODES]'",
   "  - name: AI",
   "    type: select",
+  "    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/AI.png",
   "    proxies:",
   "      - PROXY",
   "      - DIRECT",
   "      - '[ALL_NODES]'",
   "  - name: YOUTUBE",
   "    type: select",
+  "    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/YouTube.png",
   "    proxies:",
   "      - PROXY",
   "      - DIRECT",
   "      - '[ALL_NODES]'",
   "  - name: FINAL",
   "    type: select",
+  "    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Final.png",
   "    proxies:",
   "      - PROXY",
   "      - DIRECT",
   "      - '[ALL_NODES]'",
   "  - name: BLOCK",
   "    type: select",
+  "    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Advertising.png",
   "    proxies:",
   "      - REJECT",
   "      - DIRECT",
   "  - name: APPLE",
   "    type: select",
+  "    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Apple.png",
   "    proxies:",
   "      - DIRECT",
   "      - PROXY",
   "      - '[ALL_NODES]'",
   "  - name: AQARA",
   "    type: select",
+  "    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Available.png",
   "    proxies:",
   "      - DIRECT",
   "      - REJECT",
@@ -170,30 +180,35 @@ const ACCADEMIA_TEMPLATE = [
   "      - '[ALL_NODES]'",
   "  - name: BANK",
   "    type: select",
+  "    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/PayPal.png",
   "    proxies:",
   "      - DIRECT",
   "      - PROXY",
   "      - '[ALL_NODES]'",
   "  - name: FINANCE",
   "    type: select",
+  "    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/PayPal.png",
   "    proxies:",
   "      - DIRECT",
   "      - PROXY",
   "      - '[ALL_NODES]'",
   "  - name: HOME-IP",
   "    type: select",
+  "    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Server.png",
   "    proxies:",
   "      - PROXY",
   "      - DIRECT",
   "      - '[ALL_NODES]'",
   "  - name: FAKE-LOCATION",
   "    type: select",
+  "    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Global.png",
   "    proxies:",
   "      - PROXY",
   "      - DIRECT",
   "      - '[ALL_NODES]'",
   "  - name: '♻️ 自动测速'",
   "    type: url-test",
+  "    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Speedtest.png",
   "    url: http://www.google.com/blank.html",
   "    interval: 300",
   "    tolerance: 50",
@@ -204,6 +219,7 @@ const ACCADEMIA_TEMPLATE = [
   "  - RULE-SET,PreRepairEasyPrivacy_DIRECT,DIRECT",
   "  - RULE-SET,PreRepairEasyPrivacy_PROXY,PROXY",
   "  - RULE-SET,PreRepairEasyPrivacy_REJECT,BLOCK",
+  "  - RULE-SET,AntiAd,BLOCK",
   "  - RULE-SET,BlockHttpDNSPlus,BLOCK",
   "  - RULE-SET,ChinaDNS_Domain,BLOCK",
   "  - RULE-SET,ChinaDNS_IP,BLOCK",
@@ -331,6 +347,22 @@ function safeUriDecode(str) {
   }
 }
 
+function splitHostPort(hostPort) {
+  const input = String(hostPort || '').trim();
+  if (!input) return ['', ''];
+  if (input.startsWith('[')) {
+    const closeIdx = input.indexOf(']');
+    if (closeIdx !== -1) {
+      const host = input.slice(1, closeIdx);
+      const port = input.slice(closeIdx + 1).replace(/^:/, '');
+      return [host, port];
+    }
+  }
+  const lastColon = input.lastIndexOf(':');
+  if (lastColon === -1) return [input, ''];
+  return [input.slice(0, lastColon), input.slice(lastColon + 1)];
+}
+
 function parseNodeUri(uri) {
   try {
     if (!uri) return null;
@@ -351,7 +383,7 @@ function parseNodeUri(uri) {
         let [password, serverPortWithQuery] = main.split('@');
         let [serverPort, query] = (serverPortWithQuery || '').includes('?') ? serverPortWithQuery.split('?') : [serverPortWithQuery, ''];
         if (!serverPort) return null;
-        let [server, port] = serverPort.split(':');
+        let [server, port] = splitHostPort(serverPort);
         let params = new URLSearchParams(query || '');
         let sni = params.get('sni') || '';
         let insecure = params.get('insecure') === '1' || params.get('allowInsecure') === '1';
@@ -382,7 +414,7 @@ function parseNodeUri(uri) {
       serverPortWithQuery = safeUriDecode(serverPortWithQuery);
       let [serverPort, query] = (serverPortWithQuery || '').includes('?') ? serverPortWithQuery.split('?') : [serverPortWithQuery, ''];
       if (!serverPort) return null;
-      let [server, port] = serverPort.split(':');
+      let [server, port] = splitHostPort(serverPort);
       let params = new URLSearchParams(query || '');
       let security = params.get('security') || 'none';
       let tls = security === 'tls' || security === 'reality' || params.get('tls') === 'true' || type === 'trojan';
@@ -704,7 +736,7 @@ async function generateFinalConfig(env, requestBody = null) {
     if (safeVisualGroups.length > 0) {
         let extraGroups = "";
         safeVisualGroups.forEach(g => {
-          extraGroups += `\n  - name: "${g.name}"\n    type: ${g.type}\n`;
+          extraGroups += `\n  - name: "${g.name}"\n    type: ${g.type}\n    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Available.png\n`;
           if (g.type === 'url-test') extraGroups += `    url: http://www.google.com/blank.html\n    interval: 300\n    tolerance: 50\n    proxies:\n      - "PROXY"\n      - "DIRECT"\n      - "[ALL_NODES]"\n`;
           else extraGroups += `    proxies:\n      - "PROXY"\n      - "DIRECT"\n      - "[ALL_NODES]"\n`;
         });
@@ -891,7 +923,7 @@ export default {
         "<head>",
         "  <meta charset=\"UTF-8\">",
         "  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">",
-        "  <title>Clash Matrix Studio V5</title>",
+        "  <title>Clash Matrix Studio V5.2</title>",
         "  <link href=\"https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css\" rel=\"stylesheet\">",
         "  <script src=\"https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js\"></script>",
         "  <style>",
@@ -914,66 +946,14 @@ export default {
         "    .sortable-ghost { opacity: 0.1; background: #fff; }",
         "    ::selection { background-color: #2563eb; color: #fff; }",
         "    .flash-highlight { animation: flashBg 2s ease-out forwards; }",
-        "    #mobile-workspace-bar { display: none; }",
-        "    #mobile-workspace-bar button { flex: 1 1 0; min-width: 0; border: 1px solid #262626; background: #111111; color: #a3a3a3; border-radius: 8px; padding: 10px 8px; font-size: 12px; font-weight: 700; transition: all 0.2s; }",
-        "    #mobile-workspace-bar button.active { background: #1d4ed8; color: #ffffff; border-color: #3b82f6; box-shadow: 0 0 0 1px rgba(59, 130, 246, 0.25); }",
-        "    @media (max-width: 1024px) {",
-        "      body { padding: 12px; }",
-        "      #top-header, #left-panel, #right-panel { padding: 14px; }",
-        "      #top-header { align-items: stretch; }",
-        "      #top-header > div { width: 100%; max-width: none; }",
-        "      #top-header .flex.gap-3 { flex-direction: column; }",
-        "      #top-header .flex.gap-3 > button { width: 100%; }",
-        "      #mobile-workspace-bar { display: flex; gap: 8px; position: sticky; top: 8px; z-index: 40; margin-bottom: -2px; flex-wrap: wrap; }",
-        "      #mobile-workspace-bar button { flex-basis: calc(50% - 4px); }",
-        "      #left-tabbar, #right-panel-tabs { display: none !important; }",
-        "      #main-layout { gap: 12px; min-height: auto; }",
-        "      #main-layout > div { min-height: auto; }",
-        "      #left-tabbar { flex-wrap: wrap; gap: 8px; }",
-        "      #left-tabbar .tab-btn { flex: 1 1 calc(50% - 4px); min-width: 0; }",
-        "      #ltab-nodes .flex.gap-2, #ltab-rules .flex.gap-2, #ltab-rules .flex.gap-3, #node-toolbar-actions { flex-direction: column; align-items: stretch; }",
-        "      #ltab-nodes .flex.gap-2 > *, #ltab-rules .flex.gap-2 > *, #ltab-rules .flex.gap-3 > *, #node-toolbar-actions > * { width: 100%; }",
-        "      #ltab-rules .w-48 { width: 100% !important; }",
-        "      #ltab-rules .grid.grid-cols-2 { grid-template-columns: 1fr; }",
-        "      #bulk_add_manual { min-height: 72px !important; }",
-        "      #manual-nodes-list, #nodes-render-bucket { gap: 10px; }",
-        "      .manual-node-box { flex-direction: column; }",
-        "      .manual-node-box > button { width: 100%; margin-left: 0; min-height: 44px; }",
-        "      .manual-node-box textarea { min-height: 72px !important; max-height: 120px; }",
-        "      #nodes-render-bucket .node-row { display: grid !important; grid-template-columns: 34px 1fr; align-items: center; gap: 8px; padding: 12px; }",
-        "      #nodes-render-bucket .node-row > .flex-1 { grid-column: 1 / -1; padding-right: 0; border-right: 0; width: 100%; }",
-        "      #nodes-render-bucket .node-row > button { grid-column: 1 / -1; width: 100%; margin-left: 0; min-height: 42px; }",
-        "      #nodes-render-bucket .node-row .drag-handle { width: 34px; height: 34px; display: flex; align-items: center; justify-content: center; }",
-        "      #nodes-render-bucket .node-row .node-index-badge { align-self: center; justify-self: start; }",
-        "      #node-toolbar { align-items: stretch; }",
-        "      #node-toolbar-actions { width: 100%; }",
-        "      #clash_rules, #preview_box { min-height: 320px; }",
-        "      body[data-mobile-workspace='nodes'] #right-panel, body[data-mobile-workspace='rules'] #right-panel { display: none; }",
-        "      body[data-mobile-workspace='topology'] #left-panel, body[data-mobile-workspace='yaml'] #left-panel { display: none; }",
-        "      body[data-mobile-workspace='nodes'] #ltab-nodes, body[data-mobile-workspace='rules'] #ltab-rules { display: flex !important; }",
-        "      body[data-mobile-workspace='nodes'] #ltab-rules, body[data-mobile-workspace='rules'] #ltab-nodes { display: none !important; }",
-        "      body[data-mobile-workspace='topology'] #view-nodes, body[data-mobile-workspace='yaml'] #view-yaml { display: flex !important; }",
-        "      body[data-mobile-workspace='topology'] #view-yaml, body[data-mobile-workspace='yaml'] #view-nodes { display: none !important; }",
-        "    }",
-        "    @media (max-width: 640px) {",
-        "      body { padding: 8px; }",
-        "      #top-header, #left-panel, #right-panel { padding: 12px; }",
-        "      #top-header h1 { font-size: 1rem; line-height: 1.35; }",
-        "      #top-header input[readonly] { font-size: 11px; }",
-        "      #mobile-workspace-bar { flex-wrap: nowrap; overflow-x: auto; }",
-        "      #mobile-workspace-bar button { flex: 0 0 auto; min-width: 76px; }",
-        "      #left-tabbar .tab-btn { flex-basis: 100%; }",
-        "      #nodes-render-bucket .node-row .node-input-text { font-size: 12px; }",
-        "      .manual-node-box .manual-drag-handle { width: 100%; flex-direction: row; justify-content: flex-start; }",
-        "    }",
         "    @keyframes flashBg { 0% { background-color: rgba(59, 130, 246, 0.5); box-shadow: 0 0 15px rgba(59, 130, 246, 0.5); } 100% { background-color: #111111; box-shadow: none; } }",
         "  </style>",
         "</head>",
-        "<body class=\"p-4 lg:p-6 overflow-x-hidden\" data-mobile-workspace=\"nodes\">",
+        "<body class=\"p-4 lg:p-6\">",
         "  <div class=\"w-full max-w-[2000px] mx-auto flex flex-col gap-5\">",
-        "    <header id=\"top-header\" class=\"panel p-5 flex flex-col xl:flex-row justify-between items-center gap-4\">",
+        "    <header class=\"panel p-5 flex flex-col xl:flex-row justify-between items-center gap-4\">",
         "      <div>",
-        "        <h1 class=\"text-xl font-bold tracking-tight text-white flex items-center gap-2\">🌐 Clash Matrix Studio <span class=\"text-xs bg-gray-800 text-gray-400 px-2 py-0.5 rounded\">V5 终极自愈版</span></h1>",
+        "        <h1 class=\"text-xl font-bold tracking-tight text-white flex items-center gap-2\">🌐 Clash Matrix Studio <span class=\"text-xs bg-gray-800 text-gray-400 px-2 py-0.5 rounded\">V5.2 终极自愈版</span></h1>",
         "        <p class=\"text-[10px] text-green-500 font-mono mt-0.5\">STATUS: __DB_STATUS__ | AUTO-HEAL ACTIVE</p>",
         "      </div>",
         "      <div class=\"flex-1 max-w-3xl w-full\">",
@@ -984,15 +964,9 @@ export default {
         "        <button onclick=\"saveAllToKV()\" class=\"btn-action px-8 py-3 text-xs tracking-wider uppercase shadow-md flex-1 xl:flex-none\">💾 全局固化并部署生效</button>",
         "      </div>",
         "    </header>",
-        "    <div id=\"mobile-workspace-bar\" class=\"panel p-2 gap-2\">",
-        "      <button type=\"button\" class=\"mobile-workspace-btn active\" data-mobile-mode=\"nodes\" onclick=\"setMobileWorkspace('nodes')\">📦 节点</button>",
-        "      <button type=\"button\" class=\"mobile-workspace-btn\" data-mobile-mode=\"rules\" onclick=\"setMobileWorkspace('rules')\">🛡️ 规则</button>",
-        "      <button type=\"button\" class=\"mobile-workspace-btn\" data-mobile-mode=\"topology\" onclick=\"setMobileWorkspace('topology')\">🧱 拓扑</button>",
-        "      <button type=\"button\" class=\"mobile-workspace-btn\" data-mobile-mode=\"yaml\" onclick=\"setMobileWorkspace('yaml')\">📄 YAML</button>",
-        "    </div>",
-        "    <div id=\"main-layout\" class=\"grid grid-cols-1 xl:grid-cols-2 gap-6 min-h-[82vh]\">",
-        "      <div id=\"left-panel\" class=\"panel p-5 flex flex-col h-full\">",
-        "        <div id=\"left-tabbar\" class=\"flex gap-6 mb-5 border-b border-gray-800\">",
+        "    <div class=\"grid grid-cols-1 xl:grid-cols-2 gap-6 min-h-[82vh]\">",
+        "      <div class=\"panel p-5 flex flex-col h-full\">",
+        "        <div class=\"flex gap-6 mb-5 border-b border-gray-800\">",
         "          <button onclick=\"switchLeftTab('ltab-nodes')\" id=\"btn-ltab-nodes\" class=\"tab-btn active text-xs uppercase tracking-wider\">📦 节点提取与积木编辑</button>",
         "          <button onclick=\"switchLeftTab('ltab-rules')\" id=\"btn-ltab-rules\" class=\"tab-btn text-xs uppercase tracking-wider text-blue-400\">🛡️ 路由规则与策略组</button>",
         "        </div>",
@@ -1083,21 +1057,21 @@ export default {
         "           </div>",
         "        </div>",
         "      </div>",
-        "      <div id=\"right-panel\" class=\"panel p-5 flex flex-col h-full\">",
-        "        <div id=\"right-panel-tabs\" class=\"flex justify-between items-center border-b border-gray-800 pb-3 mb-4\">",
+        "      <div class=\"panel p-5 flex flex-col h-full\">",
+        "        <div class=\"flex justify-between items-center border-b border-gray-800 pb-3 mb-4\">",
         "          <div class=\"flex gap-6\">",
         "            <button onclick=\"switchRightView('view-nodes')\" id=\"btn-view-nodes\" class=\"tab-btn active text-xs uppercase tracking-wider\">⚙️ 综合拓扑列表 (全局调度)</button>",
         "            <button onclick=\"switchRightView('view-yaml')\" id=\"btn-view-yaml\" class=\"tab-btn text-xs uppercase tracking-wider text-green-500\">🎯 实时内存编译全景 (YAML)</button>",
         "          </div>",
         "        </div>",
         "        <div id=\"view-nodes\" class=\"view-content flex-1 flex flex-col relative overflow-hidden\">",
-        "          <div id=\"node-toolbar\" class=\"mb-4 flex flex-col xl:flex-row justify-between items-start xl:items-center bg-gray-900 p-3 rounded-lg border border-gray-700 gap-3\">",
+        "          <div class=\"mb-4 flex flex-col xl:flex-row justify-between items-start xl:items-center bg-gray-900 p-3 rounded-lg border border-gray-700 gap-3\">",
         "            <span class=\"text-xs text-gray-400 leading-relaxed\">",
         "              📌 左侧与右侧的拖拽排序已达成 <span class=\"text-blue-400 font-bold bg-blue-900 bg-opacity-40 px-1 rounded\">双向数据流绑定</span>。<br>",
         "              ✨ 点击 <span class=\"text-blue-400 font-bold\">📍积木溯源</span> 可触发闪烁定位。<br>",
         "              🗑️ 点 <span class=\"text-red-400 font-bold\">删除</span> 丢入黑名单（全局生效）。",
         "            </span>",
-        "            <div id=\"node-toolbar-actions\" class=\"flex gap-2 w-full xl:w-auto\">",
+        "            <div class=\"flex gap-2 w-full xl:w-auto\">",
         "              <button onclick=\"toggleDeletedMode()\" id=\"btn-toggle-del\" class=\"px-3 py-2 bg-gray-800 hover:bg-gray-700 text-[11px] font-bold text-gray-300 rounded border border-gray-600 transition\">👁️ 显隐黑名单</button>",
         "              <button onclick=\"resetNodeMap()\" class=\"px-3 py-2 bg-gray-800 hover:bg-gray-700 text-[11px] font-bold text-gray-300 rounded border border-gray-600 transition\">🧹 恢复默认重置</button>",
         "              <button onclick=\"pullFreshNodes()\" class=\"px-5 py-2 bg-gray-700 hover:bg-gray-600 text-xs font-bold text-white rounded border border-gray-500 transition shadow\">🔄 刷新拓扑数据</button>",
@@ -1117,7 +1091,7 @@ export default {
         "    </div>",
         "  </div>",
         "  <script>",
-        "    // STATE V5",
+        "    // STATE V5.2",
         "    function safeJsonDecode(encoded, fallback) {",
         "      try {",
         "        const raw = decodeURIComponent(encoded || '');",
@@ -1317,15 +1291,6 @@ export default {
         "    function toggleDeletedMode() {",
         "        window.showDeletedMode = !window.showDeletedMode;",
         "        pullFreshNodes();",
-        "    }",
-        "    function setMobileWorkspace(mode) {",
-        "      document.body.dataset.mobileWorkspace = mode;",
-        "      document.querySelectorAll('.mobile-workspace-btn').forEach(btn => btn.classList.toggle('active', btn.dataset.mobileMode === mode));",
-        "      if (mode === 'nodes') switchLeftTab('ltab-nodes');",
-        "      if (mode === 'rules') switchLeftTab('ltab-rules');",
-        "      if (mode === 'topology') switchRightView('view-nodes');",
-        "      if (mode === 'yaml') switchRightView('view-yaml');",
-        "      window.scrollTo({ top: 0, behavior: 'smooth' });",
         "    }",
         "    function switchLeftTab(id) {",
         "      document.querySelectorAll('.ltab-content').forEach(el => el.classList.add('hidden'));",
